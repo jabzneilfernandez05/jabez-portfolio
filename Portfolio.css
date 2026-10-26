@@ -1,12 +1,12 @@
 :root {
-  --bg: #121412;
-  --bg-alt: #1a1f1b;
-  --text: #f2f1ea;
-  --muted: #a3a69f;
-  --dim: #7d807a;
-  --line: #2b2f2b;
-  --accent: #ccf65a;
-  --link: #6b7bff;
+  --bg: linear-gradient(135deg, #07152e 0%, #0b2450 52%, #0a3154 100%);
+  --bg-alt: linear-gradient(135deg, #0b2040 0%, #103b68 100%);
+  --text: #edf6ff;
+  --muted: #b0c5dc;
+  --dim: #829bb5;
+  --line: #24476b;
+  --accent: #65d5ff;
+  --link: #8bbcff;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
@@ -44,11 +44,11 @@ h1, h2, h3, p { margin: 0; }
 @keyframes pulse { 50% { opacity: .3; } }
 .hero-body { display: grid; grid-template-columns: 1.6fr 1fr; gap: 3rem; align-items: center; margin-top: 3.5rem; }
 .hero-title { font-weight: 400; font-size: clamp(3rem, 7.2vw, 6.1rem); line-height: 1.02; letter-spacing: -0.03em; }
-.accent { color: var(--accent); }
+.accent { color: var(--accent); background: linear-gradient(90deg, #65d5ff, #8b9dff); background-clip: text; -webkit-text-fill-color: transparent; }
 .hero-side { color: var(--muted); font-size: 1.03rem; line-height: 1.75; padding-top: 3rem; }
-.btn { display: inline-flex; align-items: center; gap: 2rem; margin-top: 1.9rem; padding: 1.1rem 1.35rem; background: var(--accent); color: #151a0a; font-weight: 500; font-size: .9rem; transition: transform .2s, background .2s; }
+.btn { display: inline-flex; align-items: center; gap: 2rem; margin-top: 1.9rem; padding: 1.1rem 1.35rem; background: linear-gradient(110deg, #168cff, #55d8ff); color: #06172d; font-weight: 500; font-size: .9rem; transition: transform .2s, filter .2s; }
 .btn svg { width: 12px; height: 12px; }
-.btn:hover { background: #dbff72; transform: translateY(-2px); }
+.btn:hover { filter: brightness(1.12); transform: translateY(-2px); }
 
 /* Work */
 .work { padding: 4rem 0 3.5rem; }
@@ -87,7 +87,7 @@ h1, h2, h3, p { margin: 0; }
 .site-footer .mono { font-size: .65rem; }
 
 /* Lightbox */
-.lightbox { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: rgba(8, 10, 8, .92); padding: 2rem; }
+.lightbox { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: rgba(3, 12, 28, .92); padding: 2rem; }
 .lightbox[hidden] { display: none; }
 .lightbox img { max-height: 85vh; max-width: min(1100px, 100%); border-radius: 4px; }
 .lb-close, .lb-nav { position: absolute; background: none; border: 1px solid var(--line); color: var(--text); width: 46px; height: 46px; font-size: 1.6rem; line-height: 1; cursor: pointer; transition: border-color .2s, color .2s; }
