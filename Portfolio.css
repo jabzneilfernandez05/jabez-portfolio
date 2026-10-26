@@ -172,7 +172,7 @@ html.panel-mode .contact {
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 5.5rem clamp(1.5rem, 4vw, 4rem) 4rem;
+  padding: 6.5rem clamp(1.5rem, 4vw, 4rem) 4rem;
   justify-content: safe center;
   opacity: 0;
   pointer-events: none;
