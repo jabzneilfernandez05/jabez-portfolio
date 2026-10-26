@@ -16,6 +16,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
 html.about-active { --chrome-bg: var(--bg-alt); }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 9999; background: #000; pointer-events: none; animation: reveal-portfolio 1.2s ease-out forwards; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, p { margin: 0; }
@@ -104,6 +105,7 @@ h1, h2, h3, p { margin: 0; }
 .hero-title, .hero-side { animation: rise .8s cubic-bezier(.2, .7, .2, 1) both; }
 .hero-side { animation-delay: .15s; }
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+@keyframes reveal-portfolio { to { opacity: 0; visibility: hidden; } }
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -210,6 +212,8 @@ html.panel-mode .site-footer::before {
 html.panel-mode .lightbox { z-index: 50; }
 
 @media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; opacity: 0; visibility: hidden; }
+
   html.panel-mode .hero,
   html.panel-mode .work,
   html.panel-mode .about,
