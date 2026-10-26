@@ -16,7 +16,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
 html.about-active { --chrome-bg: var(--bg-alt); }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-body::before { content: ""; position: fixed; inset: 0; z-index: 9999; background: #000; pointer-events: none; animation: reveal-portfolio 1.2s ease-out forwards; }
+body::before { content: ""; position: fixed; inset: 0; z-index: 9999; background: #000; pointer-events: none; animation: reveal-portfolio 1.3s ease-out forwards; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, p { margin: 0; }
