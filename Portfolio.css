@@ -117,6 +117,8 @@ h1, h2, h3, p { margin: 0; }
   .nav { gap: 1.25rem; }
   .hero-meta { flex-direction: column; gap: .6rem; }
   .site-footer { flex-direction: column; gap: .5rem; }
+  .site-footer { font-size: .8rem; }
+  .site-footer .mono { font-size: .72rem; }
   .disclaimer { text-align: left; }
 }
 
@@ -215,4 +217,15 @@ html.panel-mode .lightbox { z-index: 50; }
 
   html.panel-mode .site-header,
   html.panel-mode .site-footer { transition-duration: .01ms; }
+}
+
+@media (max-width: 560px) {
+  html.panel-mode .hero,
+  html.panel-mode .work,
+  html.panel-mode .about,
+  html.panel-mode .contact { padding-bottom: calc(7rem + env(safe-area-inset-bottom, 0px)); }
+
+  html.panel-mode .site-footer {
+    padding-bottom: calc(1.75rem + env(safe-area-inset-bottom, 0px));
+  }
 }
