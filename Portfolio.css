@@ -1,6 +1,7 @@
 :root {
   --bg: linear-gradient(135deg, #07152e 0%, #0b2450 52%, #0a3154 100%);
   --bg-alt: linear-gradient(135deg, #0b2040 0%, #103b68 100%);
+  --chrome-bg: #07101e;
   --text: #edf6ff;
   --muted: #b0c5dc;
   --dim: #829bb5;
@@ -26,7 +27,7 @@ h1, h2, h3, p { margin: 0; }
 .skip-link:focus { left: 1rem; top: 1rem; }
 
 /* Header */
-.site-header { display: flex; justify-content: space-between; align-items: center; padding: 2.25rem 0 1.9rem; border-bottom: 1px solid var(--line); }
+.site-header { display: flex; justify-content: space-between; align-items: center; padding: 2.25rem 0 1.9rem; border-bottom: 1px solid var(--line); background: var(--chrome-bg); }
 .brand { display: flex; align-items: center; gap: .9rem; }
 .brand-mark { width: 40px; height: 28px; color: var(--accent); }
 .brand-name { font-weight: 500; font-size: 1.05rem; }
@@ -83,7 +84,7 @@ h1, h2, h3, p { margin: 0; }
 .linkedin:hover { text-decoration: underline; }
 
 /* Footer */
-.site-footer { display: flex; justify-content: space-between; padding: 1.6rem 0 2.2rem; border-top: 1px solid var(--line); color: var(--dim); font-size: .75rem; }
+.site-footer { display: flex; justify-content: space-between; padding: 1.6rem 0 2.2rem; border-top: 1px solid var(--line); color: var(--dim); font-size: .75rem; background: var(--chrome-bg); }
 .site-footer .mono { font-size: .65rem; }
 
 /* Lightbox */
@@ -130,16 +131,13 @@ html.panel-mode main { position: fixed; inset: 0; overflow: hidden; }
 html.panel-mode .site-header,
 html.panel-mode .site-footer { transition: background-color .8s ease-in-out; }
 
-html.panel-mode.about-active .site-header,
-html.panel-mode.about-active .site-footer { background: var(--bg-alt); }
-
 html.panel-mode .site-header {
   position: fixed;
   top: 0;
   left: 50%;
   z-index: 30;
   transform: translateX(-50%);
-  background: var(--bg);
+  background: var(--chrome-bg);
   width: min(1312px, calc(100% - clamp(3rem, 8vw, 8rem)));
   padding: 1rem 0;
   border-bottom: 0;
@@ -197,7 +195,7 @@ html.panel-mode .site-footer {
   left: 50%;
   z-index: 30;
   transform: translateX(-50%);
-  background: var(--bg);
+  background: var(--chrome-bg);
   width: min(1312px, calc(100% - clamp(3rem, 8vw, 8rem)));
   padding: .8rem 0 1rem;
   border-top: 0;
