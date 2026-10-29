@@ -84,12 +84,21 @@ h1, h2, h3, p { margin: 0; }
 .contact-side { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; }
 .big-arrow { color: var(--accent); width: 48px; margin: 1.5rem 1.5rem 0 0; transition: transform .25s; }
 .big-arrow:hover { transform: translate(4px, -4px); }
-.linkedin { font-family: var(--mono); font-size: .72rem; color: var(--link); white-space: nowrap; }
-.linkedin:hover { text-decoration: underline; }
+.social-icons { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; gap: .05rem; margin-top: 5.25rem; }
+.linkedin-icon, .facebook-icon, .instagram-icon { display: inline-flex; align-items: center; justify-content: center; transition: transform .2s, filter .2s; }
+.linkedin-icon { width: 78px; height: 78px; }
+.linkedin-icon img { width: 78px; height: 78px; object-fit: contain; }
+.facebook-icon { width: 40px; height: 50px; }
+.facebook-icon img { width: 50px; height: 50px; object-fit: contain; }
+.instagram-icon {width: 79px; height: 90px; }
+.instagram-icon img {width: 42px; height: 42px; object-fit: contain; }
+.linkedin-icon:hover, .facebook-icon:hover, .instagram-icon:hover { filter: brightness(1.12) drop-shadow(0 0 8px rgba(101, 213, 255, .55)); transform: translateY(-2px); }
 
 /* Footer */
 .site-footer { position: relative; isolation: isolate; display: flex; justify-content: space-between; padding: 1.6rem 0 2.2rem; border-top: 1px solid var(--line); color: var(--dim); font-size: .75rem; }
 .site-footer .mono { font-size: .65rem; }
+.scroll-progress { position: absolute; top: 0; left: 50%; width: 100vw; height: 3.5px; overflow: hidden; background: var(--line); transform: translateX(-50%); }
+.scroll-progress span { display: block; width: 100%; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .12s linear; }
 
 /* Lightbox */
 .lightbox { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: rgba(3, 12, 28, .92); padding: 2rem; }
@@ -222,6 +231,8 @@ html.panel-mode .lightbox { z-index: 50; }
 
   html.panel-mode .site-header,
   html.panel-mode .site-footer { transition-duration: .01ms; }
+
+  .scroll-progress span { transition: none; }
 }
 
 @media (max-width: 560px) {

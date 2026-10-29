@@ -51,11 +51,28 @@
   });
 
   const pages = Array.from(document.querySelectorAll('.hero, .work, .about, .contact'));
+  const progressBar = document.querySelector('.scroll-progress');
+  const progressFill = progressBar.querySelector('span');
   const initialPage = pages.findIndex((page) => page.id === window.location.hash.slice(1));
   let activeIndex = initialPage >= 0 ? initialPage : 0;
   let transitioning = false;
   let wheelGestureLocked = false;
   let wheelGestureTimer;
+
+  const updateProgress = () => {
+    const page = pages[activeIndex];
+    const scrollableDistance = page.scrollHeight - page.clientHeight;
+    const pageProgress = scrollableDistance > 0
+      ? Math.min(1, Math.max(0, page.scrollTop / scrollableDistance))
+      : 0;
+    const progress = activeIndex === pages.length - 1
+      ? 1
+      : (activeIndex + pageProgress) / pages.length;
+    const percentage = Math.round(progress * 100);
+
+    progressFill.style.transform = `scaleX(${progress})`;
+    progressBar.setAttribute('aria-valuenow', String(percentage));
+  };
 
   pages.forEach((page, index) => {
     const active = index === activeIndex;
@@ -63,9 +80,12 @@
     page.inert = !active;
     page.setAttribute('aria-hidden', String(!active));
     page.style.zIndex = active ? '1' : '0';
+    page.addEventListener('scroll', updateProgress, { passive: true });
   });
+  window.addEventListener('resize', updateProgress);
   document.documentElement.classList.add('panel-mode');
   document.documentElement.classList.toggle('about-active', pages[activeIndex].classList.contains('about'));
+  updateProgress();
 
   const canScroll = (page, direction) => {
     if (direction > 0) return page.scrollTop + page.clientHeight < page.scrollHeight - 2;
@@ -88,6 +108,7 @@
     next.setAttribute('aria-hidden', 'false');
     next.classList.add('is-active');
     activeIndex = nextIndex;
+    updateProgress();
     document.documentElement.classList.toggle('about-active', next.classList.contains('about'));
 
     window.setTimeout(() => {
